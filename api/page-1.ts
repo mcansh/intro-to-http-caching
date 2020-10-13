@@ -1,4 +1,4 @@
-import type { NowApiHandler } from "@now/node";
+import type { NowApiHandler } from "@vercel/node";
 import { createPage } from "./_utils";
 
 const handler: NowApiHandler = (_req, res) => {
