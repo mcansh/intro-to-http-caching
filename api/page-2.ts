@@ -2,7 +2,7 @@ import type { NowApiHandler } from "@vercel/node";
 import { md5, createPage } from "./_utils";
 
 const handler: NowApiHandler = (req, res) => {
-  const html = createPage("Home");
+  const html = createPage("Page 2");
   const etag = md5(html);
 
   if (etag === req.headers["if-none-match"]) {
