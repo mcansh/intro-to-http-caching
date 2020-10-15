@@ -1,9 +1,9 @@
 import type { NowApiHandler } from "@vercel/node";
-import { md5, createPage } from "./_utils";
+import { createETag, createPage } from "./_utils";
 
 const handler: NowApiHandler = (req, res) => {
   const html = createPage("Home");
-  const etag = md5(html);
+  const etag = createETag(html);
 
   if (etag === req.headers["if-none-match"]) {
     return res.status(304).end();

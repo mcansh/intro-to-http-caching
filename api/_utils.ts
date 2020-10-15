@@ -1,6 +1,8 @@
-import { createHash } from "crypto";
+import { BinaryLike, createHash } from "crypto";
 
-const md5 = (str: string) => createHash("md5").update(str).digest("hex");
+function createETag(input: BinaryLike) {
+  return createHash("md5").update(input).digest("hex");
+}
 
 function createPage(title: string) {
   return `
@@ -29,4 +31,4 @@ function createPage(title: string) {
   `;
 }
 
-export { md5, createPage };
+export { createETag, createPage };
